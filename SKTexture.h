@@ -57,12 +57,6 @@
 + (void)addTextureToPreloadlist:(id)arg1;
 + (id)lookupTextureCacheForName:(id)arg1;
 + (void)registerTextureCache:(id)arg1 forName:(id)arg2;
-+ (id)_textureWithGLTextureId:(unsigned int)arg1 size:(struct CGSize)arg2;
-+ (id)_textureByTransferingData:(char *)arg1 size:(struct CGSize)arg2 rowLength:(unsigned int)arg3 alignment:(unsigned int)arg4;
-+ (id)_textureByTransferingData:(char *)arg1 size:(struct CGSize)arg2;
-+ (id)textureWithImagePath:(id)arg1;
-+ (id)compressedTextureWithData:(id)arg1 size:(struct CGSize)arg2 bitsPerPixel:(unsigned int)arg3 hasAlpha:(_Bool)arg4;
-+ (id)compressedTextureWithData:(id)arg1;
 @property(readonly, nonatomic) struct CGSize alphaMapSize; // @synthesize alphaMapSize=_alphaMapSize;
 @property(readonly, nonatomic) unsigned int *alphaMap; // @synthesize alphaMap=_alphaMap;
 @property(copy, nonatomic) NSString *subTextureName; // @synthesize subTextureName=_subTextureName;
@@ -110,10 +104,6 @@
 - (struct CGImage *)alphaMask;
 - (_Bool)alphaTestX:(double)arg1 y:(double)arg2;
 - (void)generateAlphaMapOfSize:(struct CGSize)arg1 fromImage:(struct CGImage *)arg2;
-- (id)imgName;
-- (void)_savePngFromGLCache:(id)arg1;
-- (struct CGImage *)_newTextureFromGLCache;
-@property(readonly, nonatomic) NSString *imageNameOrPath;
 
 @end
 

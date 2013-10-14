@@ -44,7 +44,6 @@
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)copy;
-- (id)initWithCount:(unsigned long long)arg1;
 
 @end
 

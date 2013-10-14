@@ -96,18 +96,6 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
-- (id)allIntersectionsWithNode:(id)arg1 useAlphaTest:(_Bool)arg2;
-- (_Bool)intersectsNode:(id)arg1 useAlphaTest:(_Bool)arg2;
-@property(readonly, nonatomic) struct CGSize _size;
-@property(nonatomic) struct CGPoint _anchorPoint;
-@property(readonly, nonatomic) struct CGRect _untransformedBounds;
-@property(nonatomic) _Bool _showBounds;
-@property(retain, nonatomic) NSMutableDictionary *_info;
-- (id)childrenInRect:(struct CGRect)arg1;
-- (id)_parent;
-- (void)setParent:(id)arg1;
-- (void)removeAction:(id)arg1;
-- (struct SKCSprite *)csprite;
 
 @end
 
