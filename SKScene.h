@@ -71,6 +71,11 @@
 - (id)initWithSize:(struct CGSize)arg1;
 - (id)init;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)_setNeedsRender;
+- (void)_setNeedsUpdate;
+@property _Bool _usesExplicitRender;
+@property _Bool _usesExplicitUpdate;
+- (void)didContinueContact:(id)arg1;
 
 @end
 

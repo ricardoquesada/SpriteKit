@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 
 + (id)fontWithTexture:(id)arg1 fontDataString:(id)arg2;
 + (id)fontForFileNamed:(id)arg1;
++ (id)_fontForFileNamed:(id)arg1;
 - (void).cxx_destruct;
 - (double)kerningForCharacterNamed:(id)arg1 followedBy:(id)arg2;
 - (double)advanceForCharacterNamed:(id)arg1;
@@ -35,6 +36,7 @@ __attribute__((visibility("hidden")))
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
+- (id)fontName;
 
 @end
 

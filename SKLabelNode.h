@@ -26,6 +26,8 @@
 }
 
 + (id)labelNodeWithFontNamed:(id)arg1;
++ (id)_labelNodeWithFontTexture:(id)arg1 fontDataString:(id)arg2;
++ (id)_labelNodeWithFontNamed:(id)arg1;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)description;

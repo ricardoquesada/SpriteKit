@@ -89,10 +89,25 @@
 - (void)startRenderCallbacks;
 - (void)setUpRenderCallback;
 - (void)bindOpenGLContext;
-- (_Bool)_usesAsyncUpdateQueue;
-- (void)set_usesAsyncUpdateQueue:(_Bool)arg1;
+@property(nonatomic) _Bool _usesAsyncUpdateQueue;
 @property(nonatomic) _Bool ignoresSiblingOrder;
 @property(nonatomic, getter=isAsynchronous) _Bool asynchronous;
+@property(readonly, nonatomic) int _spriteSubmitCount;
+@property(readonly, nonatomic) int _spriteRenderCount;
+@property(readonly, nonatomic) double _fps;
+@property(readonly, nonatomic) SKScene *_nextScene;
+@property(readonly, nonatomic) SKScene *_scene;
+- (void)_update:(double)arg1;
+- (void)_showAllStats;
+@property(nonatomic) _Bool _showsTotalAreaRendered;
+@property(nonatomic) _Bool _showsCulledNodesInNodeCount;
+@property(nonatomic) _Bool _showsGPUStats;
+@property(nonatomic) _Bool _showsCPUStats;
+@property(nonatomic) _Bool _showsCoreAnimationFPS;
+@property(nonatomic) _Bool _shouldCenterStats;
+@property(nonatomic) _Bool _showsSpriteBounds;
+- (void)renderToOpenGLTextureId:(unsigned int)arg1 size:(struct CGSize)arg2 scaleFactor:(double)arg3;
+- (id)snapshot;
 
 @end
 
