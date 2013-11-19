@@ -18,8 +18,6 @@
 
 + (void)preloadTextureAtlases:(id)arg1 withCompletionHandler:(id)arg2;
 + (id)atlasNamed:(id)arg1;
-+ (id)findTextureNamed:(id)arg1;
-+ (id)getSupportedPostfixes;
 - (void).cxx_destruct;
 - (id)textureNamed:(id)arg1;
 - (id)findTextureNamedFromAtlas:(id)arg1;
@@ -31,8 +29,6 @@
 @property(readonly, nonatomic) NSArray *textureNames;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
-- (void)unload;
-- (void)preload;
 
 @end
 

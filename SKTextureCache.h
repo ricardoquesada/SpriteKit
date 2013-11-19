@@ -9,6 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface SKTextureCache : NSObject
 {
+    long long filteringMode;
     unsigned int texId;
     int texInternalFormat;
     unsigned int texFormat;
@@ -24,8 +25,11 @@ __attribute__((visibility("hidden")))
     int state;
     int lock;
     struct CGImage *collisionMask;
+    int wrapMode;
 }
 
+@property(nonatomic) int wrapMode; // @synthesize wrapMode;
+@property(nonatomic) long long filteringMode; // @synthesize filteringMode;
 @property(nonatomic) int state; // @synthesize state;
 @property(nonatomic) unsigned int texType; // @synthesize texType;
 @property(nonatomic) unsigned int texFormat; // @synthesize texFormat;

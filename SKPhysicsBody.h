@@ -34,12 +34,15 @@
     struct CGVector _velocity;
 }
 
++ (id)bodyWithBodies:(id)arg1;
 + (id)bodyWithEdgeLoopFromRect:(struct CGRect)arg1;
 + (id)bodyWithEdgeLoopFromPath:(struct CGPath *)arg1;
 + (id)bodyWithEdgeChainFromPath:(struct CGPath *)arg1;
 + (id)bodyWithEdgeFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2;
 + (id)bodyWithPolygonFromPath:(struct CGPath *)arg1;
++ (id)bodyWithRectangleOfSize:(struct CGSize)arg1 center:(struct CGPoint)arg2;
 + (id)bodyWithRectangleOfSize:(struct CGSize)arg1;
++ (id)bodyWithCircleOfRadius:(double)arg1 center:(struct CGPoint)arg2;
 + (id)bodyWithCircleOfRadius:(double)arg1;
 + (id)copyWithZone:(struct _NSZone *)arg1;
 + (id)allocWithZone:(struct _NSZone *)arg1;

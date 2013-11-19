@@ -13,6 +13,7 @@
     struct SKCShapeSprite *ss;
 }
 
+- (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(retain, nonatomic) UIColor *strokeColor;
 @property(retain, nonatomic) UIColor *fillColor;

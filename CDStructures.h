@@ -364,13 +364,12 @@ struct SKCGroup {
 };
 
 struct SKCKeyframeSequence {
-    void **_field1;
+    int _field1;
     int _field2;
-    int _field3;
+    long long _field3;
     long long _field4;
-    long long _field5;
+    float *_field5;
     float *_field6;
-    float *_field7;
 };
 
 struct SKCMove {
