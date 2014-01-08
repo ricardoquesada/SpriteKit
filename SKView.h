@@ -52,7 +52,6 @@
 @property(readonly, nonatomic) SKScene *scene;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)_setUpdateQueue:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 updateQueue:(id)arg2;
 - (id)init;
 - (id)_textureFromNode:(id)arg1;
