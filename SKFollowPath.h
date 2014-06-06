@@ -13,6 +13,8 @@ __attribute__((visibility("hidden")))
     struct CGPath *_cgPath;
 }
 
++ (id)followPath:(struct CGPath *)arg1 asOffset:(_Bool)arg2 orientToPath:(_Bool)arg3 speed:(double)arg4;
++ (id)followPath:(struct CGPath *)arg1 speed:(double)arg2;
 + (id)followPath:(struct CGPath *)arg1 asOffset:(_Bool)arg2 orientToPath:(_Bool)arg3 duration:(double)arg4;
 + (id)followPath:(struct CGPath *)arg1 duration:(double)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;

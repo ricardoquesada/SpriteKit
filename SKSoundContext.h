@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
     struct ALCdevice_struct *_device;
     struct ALCcontext_struct *_context;
+    _Bool _suspended;
 }
 
 + (id)currentContext;
@@ -19,6 +20,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double gain;
 @property(nonatomic) struct CGPoint listenerPosition;
 - (void)makeCurrentContext;
+@property(nonatomic) _Bool suspended;
 - (id)init;
 
 @end

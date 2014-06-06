@@ -12,7 +12,6 @@
 @interface SKAction : NSObject <NSCopying, NSCoding>
 {
     struct SKCAction *_caction;
-    void *caction;
 }
 
 + (id)customActionWithDuration:(double)arg1 actionBlock:(CDUnknownBlockType)arg2;
@@ -24,8 +23,16 @@
 + (id)removeFromParent;
 + (id)waitForDuration:(double)arg1 withRange:(double)arg2;
 + (id)waitForDuration:(double)arg1;
++ (id)reachToNode:(id)arg1 rootNode:(id)arg2 velocity:(double)arg3;
++ (id)reachToNode:(id)arg1 rootNode:(id)arg2 duration:(double)arg3;
++ (id)reachTo:(struct CGPoint)arg1 rootNode:(id)arg2 velocity:(double)arg3;
++ (id)reachTo:(struct CGPoint)arg1 rootNode:(id)arg2 duration:(double)arg3;
++ (id)strengthBy:(float)arg1 duration:(double)arg2;
++ (id)strengthTo:(float)arg1 duration:(double)arg2;
 + (id)speedTo:(double)arg1 duration:(double)arg2;
 + (id)speedBy:(double)arg1 duration:(double)arg2;
++ (id)followPath:(struct CGPath *)arg1 asOffset:(_Bool)arg2 orientToPath:(_Bool)arg3 speed:(double)arg4;
++ (id)followPath:(struct CGPath *)arg1 speed:(double)arg2;
 + (id)followPath:(struct CGPath *)arg1 asOffset:(_Bool)arg2 orientToPath:(_Bool)arg3 duration:(double)arg4;
 + (id)followPath:(struct CGPath *)arg1 duration:(double)arg2;
 + (id)colorizeWithColorBlendFactor:(double)arg1 duration:(double)arg2;
@@ -37,6 +44,8 @@
 + (id)animateWithTextures:(id)arg1 timePerFrame:(double)arg2;
 + (id)setTexture:(id)arg1 resize:(_Bool)arg2;
 + (id)setTexture:(id)arg1;
++ (id)unhide;
++ (id)hide;
 + (id)fadeAlphaTo:(double)arg1 duration:(double)arg2;
 + (id)fadeAlphaBy:(double)arg1 duration:(double)arg2;
 + (id)fadeOutWithDuration:(double)arg1;

@@ -6,10 +6,12 @@
 
 #import "UIView.h"
 
-@class EAGLContext, NSData, NSMutableDictionary, NSObject<OS_dispatch_queue>, SKDisplayLink, SKLabelNode, SKScene;
+@class EAGLContext, NSData, NSMutableDictionary, NSObject<OS_dispatch_queue>, SKDisplayLink, SKLabelNode, SKNode, SKScene;
 
 @interface SKView : UIView
 {
+    _Bool _allowsTransparency;
+    _Bool _priorResignActivePausedState;
     unsigned long long _frameInterval;
     SKDisplayLink *_displayLink;
     NSObject<OS_dispatch_queue> *_updateQueue;
@@ -27,11 +29,14 @@
     unsigned int _colorRenderBuffer;
     unsigned int _depthStencilRenderBuffer;
     unsigned int _frameBuffer;
+    _Bool _prefersLowPowerGPU;
     _Bool _usesAsyncUpdateQueue;
     _Bool _hasRenderedOnce;
     _Bool _hasRenderedForCurrentUpdate;
     _Bool _isInTransition;
     _Bool _disableInput;
+    _Bool _mouseIsDown;
+    SKNode *_nodeUnderCursor;
     float _transitionDuration;
     float _transitionTime;
     SKScene *_nextScene;
@@ -52,16 +57,21 @@
 @property(readonly, nonatomic) SKScene *scene;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)_setUpdateQueue:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 updateQueue:(id)arg2;
 - (id)init;
-- (id)_textureFromNode:(id)arg1;
+- (id)_textureFromNode:(id)arg1 crop:(struct CGRect)arg2;
+- (id)textureFromNode:(id)arg1 crop:(struct CGRect)arg2;
 - (id)textureFromNode:(id)arg1;
+@property(nonatomic) _Bool showsFields;
 @property(nonatomic) _Bool showsPhysics;
 @property(nonatomic) _Bool showsDrawCount;
+@property(nonatomic) _Bool showsQuadCount;
 @property(nonatomic) _Bool showsNodeCount; // @synthesize showsNodeCount;
 @property(nonatomic) _Bool showsFPS; // @synthesize showsFPS;
 - (_Bool)showsSpriteBounds;
 - (void)setShowsSpriteBounds:(_Bool)arg1;
+@property(nonatomic) _Bool shouldCullNonVisibleNodes;
 @property(readonly, nonatomic) struct CGSize pixelSize;
 - (void)writeContentsToPNG:(id)arg1;
 @property(nonatomic, getter=isPaused) _Bool paused;
@@ -76,8 +86,11 @@
 - (void)_setupContext;
 @property(retain) EAGLContext *_context;
 - (void)displayLayer:(id)arg1;
+@property(nonatomic) _Bool allowsTransparency;
 - (_Bool)isOpaque;
 - (void)remakeFramebuffer:(double)arg1;
+- (void)CBApplicationDidBecomeActive;
+- (void)CBApplicationWillResignActive;
 - (void)_initialize;
 - (void)dealloc;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromScene:(id)arg2;
@@ -107,6 +120,8 @@
 @property(nonatomic) _Bool _showsCoreAnimationFPS;
 @property(nonatomic) _Bool _shouldCenterStats;
 @property(nonatomic) _Bool _showsSpriteBounds;
+@property(nonatomic) struct CGPoint _viewTranslation;
+@property(nonatomic) double _viewScale;
 - (void)renderToOpenGLTextureId:(unsigned int)arg1 size:(struct CGSize)arg2 scaleFactor:(double)arg3;
 - (id)snapshot;
 

@@ -16,12 +16,15 @@
     _Bool _dynamic;
     _Bool _usesPreciseCollisionDetection;
     _Bool _allowsRotation;
+    _Bool _pinned;
     _Bool _resting;
     _Bool _affectedByGravity;
+    unsigned int _fieldBitMask;
     unsigned int _categoryBitMask;
     unsigned int _collisionBitMask;
     unsigned int _contactTestBitMask;
     double _friction;
+    double _charge;
     double _restitution;
     double _linearDamping;
     double _angularDamping;
@@ -35,6 +38,8 @@
 }
 
 + (id)bodyWithBodies:(id)arg1;
++ (id)bodyWithTexture:(id)arg1 alphaThreshold:(float)arg2 size:(struct CGSize)arg3;
++ (id)bodyWithTexture:(id)arg1 size:(struct CGSize)arg2;
 + (id)bodyWithEdgeLoopFromRect:(struct CGRect)arg1;
 + (id)bodyWithEdgeLoopFromPath:(struct CGPath *)arg1;
 + (id)bodyWithEdgeChainFromPath:(struct CGPath *)arg1;
@@ -48,11 +53,12 @@
 + (id)allocWithZone:(struct _NSZone *)arg1;
 @property(nonatomic) double angularVelocity; // @synthesize angularVelocity=_angularVelocity;
 @property(nonatomic) struct CGVector velocity; // @synthesize velocity=_velocity;
-@property(readonly, nonatomic) SKNode *node; // @synthesize node=_node;
+@property(readonly, nonatomic) __weak SKNode *node; // @synthesize node=_node;
 @property(readonly, nonatomic) NSArray *joints; // @synthesize joints=_joints;
 @property(nonatomic) unsigned int contactTestBitMask; // @synthesize contactTestBitMask=_contactTestBitMask;
 @property(nonatomic) unsigned int collisionBitMask; // @synthesize collisionBitMask=_collisionBitMask;
 @property(nonatomic) unsigned int categoryBitMask; // @synthesize categoryBitMask=_categoryBitMask;
+@property(nonatomic) unsigned int fieldBitMask; // @synthesize fieldBitMask=_fieldBitMask;
 @property(nonatomic) _Bool affectedByGravity; // @synthesize affectedByGravity=_affectedByGravity;
 @property(readonly, nonatomic) double area; // @synthesize area=_area;
 @property(nonatomic) double mass; // @synthesize mass=_mass;
@@ -60,8 +66,10 @@
 @property(nonatomic) double angularDamping; // @synthesize angularDamping=_angularDamping;
 @property(nonatomic) double linearDamping; // @synthesize linearDamping=_linearDamping;
 @property(nonatomic) double restitution; // @synthesize restitution=_restitution;
+@property(nonatomic) double charge; // @synthesize charge=_charge;
 @property(nonatomic) double friction; // @synthesize friction=_friction;
 @property(nonatomic, getter=isResting) _Bool resting; // @synthesize resting=_resting;
+@property(nonatomic) _Bool pinned; // @synthesize pinned=_pinned;
 @property(nonatomic) _Bool allowsRotation; // @synthesize allowsRotation=_allowsRotation;
 @property(nonatomic) _Bool usesPreciseCollisionDetection; // @synthesize usesPreciseCollisionDetection=_usesPreciseCollisionDetection;
 @property(nonatomic, getter=isDynamic) _Bool dynamic; // @synthesize dynamic=_dynamic;

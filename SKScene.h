@@ -6,7 +6,7 @@
 
 #import <SpriteKit/SKEffectNode.h>
 
-@class NSMutableDictionary, PKPhysicsWorld, SKPhysicsWorld, SKView, UIColor;
+@class NSMutableArray, NSMutableDictionary, PKPhysicsWorld, SKPhysicsBody, SKPhysicsWorld, SKView, UIColor;
 
 @interface SKScene : SKEffectNode
 {
@@ -15,14 +15,17 @@
     struct CGRect _visibleRect;
     long long _scaleMode;
     NSMutableDictionary *_touchMap;
+    NSMutableArray *_allChildenWithConstraints;
     struct CGRect _bounds;
     _Bool _isSetup;
     _Bool _usesExplicitUpdate;
     _Bool _usesExplicitRender;
+    SKPhysicsBody *_scenePinBody;
     id _view;
     _Bool __needsUpdate;
     _Bool __needsRender;
     SKPhysicsWorld *_physicsWorld;
+    id <SKSceneDelegate> _delegate;
     PKPhysicsWorld *__pkPhysicsWorld;
 }
 
@@ -32,11 +35,14 @@
 @property(retain, nonatomic) PKPhysicsWorld *_pkPhysicsWorld; // @synthesize _pkPhysicsWorld=__pkPhysicsWorld;
 @property _Bool _needsRender; // @synthesize _needsRender=__needsRender;
 @property _Bool _needsUpdate; // @synthesize _needsUpdate=__needsUpdate;
+@property(nonatomic) id <SKSceneDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) long long scaleMode; // @synthesize scaleMode=_scaleMode;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) SKView *view;
+@property(readonly, nonatomic) __weak SKView *view;
 - (void)setPaused:(_Bool)arg1;
+- (void)didFinishUpdate;
+- (void)didApplyConstriants;
 - (void)didSimulatePhysics;
 - (void)didEvaluateActions;
 - (void)_update:(double)arg1;
@@ -67,6 +73,9 @@
 - (struct CGPoint)position;
 @property(nonatomic) struct CGPoint anchorPoint;
 @property(retain, nonatomic) UIColor *backgroundColor;
+- (void)_removeConstraintsForNode:(id)arg1;
+- (void)_registerConstraintsForNode:(id)arg1;
+- (_Bool)_hasConstraints;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithSize:(struct CGSize)arg1;
 - (id)init;

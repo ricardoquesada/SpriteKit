@@ -7,11 +7,11 @@
 #import "UIColor.h"
 
 @interface UIColor (UIColor)
-+ (id)colorWithComponentRGBA:(CDStruct_83984b6f)arg1;
++ (id)colorWithComponentRGBA:(CDStruct_818bb265)arg1;
 - (double)alpha;
 - (double)blue;
 - (double)green;
 - (double)red;
-- (CDStruct_83984b6f)componentRGBA;
+- (CDStruct_818bb265)componentRGBA;
 @end
 

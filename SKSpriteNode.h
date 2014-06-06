@@ -6,20 +6,29 @@
 
 #import <SpriteKit/SKNode.h>
 
-@class SKTexture, UIColor;
+@class SKLightNode, SKShader, SKTexture, UIColor;
 
 @interface SKSpriteNode : SKNode
 {
+    SKLightNode *_light;
     _Bool _shouldRepeatTexture;
 }
 
 + (id)spriteNodeWithColor:(id)arg1 size:(struct CGSize)arg2;
++ (id)spriteNodeWithTexture:(id)arg1 normalMap:(id)arg2;
 + (id)spriteNodeWithTexture:(id)arg1 size:(struct CGSize)arg2;
 + (id)spriteNodeWithTexture:(id)arg1;
++ (id)spriteNodeWithImageNamed:(id)arg1 normalMapped:(_Bool)arg2;
 + (id)spriteNodeWithImageNamed:(id)arg1;
 @property(nonatomic) _Bool shouldRepeatTexture; // @synthesize shouldRepeatTexture=_shouldRepeatTexture;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)copy;
 - (_Bool)containsPoint:(struct CGPoint)arg1;
 @property(nonatomic) long long blendMode;
+@property(nonatomic) unsigned int shadowedBitMask;
+@property(nonatomic) unsigned int shadowCastBitMask;
+@property(nonatomic) unsigned int lightingBitMask;
 @property(nonatomic) struct CGSize repeatTextureSize;
 - (void)setRepeatTexture:(_Bool)arg1;
 - (_Bool)repeatTexture;
@@ -28,6 +37,8 @@
 @property(nonatomic) struct CGPoint anchorPoint;
 @property(retain, nonatomic) UIColor *color;
 @property(nonatomic) double colorBlendFactor;
+@property(retain, nonatomic) SKShader *shader;
+@property(retain, nonatomic) SKTexture *normalTexture;
 @property(retain, nonatomic) SKTexture *texture;
 - (id)description;
 - (id)initWithTexture:(id)arg1;
@@ -38,6 +49,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithTexture:(id)arg1 color:(id)arg2 size:(struct CGSize)arg3;
+- (id)_copyImageData;
 
 @end
 

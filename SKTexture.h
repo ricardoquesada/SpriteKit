@@ -45,14 +45,18 @@
 + (void)preloadTextures;
 + (void)deleteUnusedTextures;
 + (id)textureWithData:(id)arg1 size:(struct CGSize)arg2 rowLength:(unsigned int)arg3 alignment:(unsigned int)arg4;
++ (id)textureWithData:(id)arg1 size:(struct CGSize)arg2 flipped:(_Bool)arg3;
 + (id)textureWithData:(id)arg1 size:(struct CGSize)arg2;
 + (id)textureWithImage:(id)arg1;
 + (id)textureWithCGImage:(struct CGImage *)arg1;
++ (id)textureWithCGImage:(struct CGImage *)arg1 pointSize:(struct CGSize)arg2;
++ (id)textureNoiseWithSmoothness:(double)arg1 size:(struct CGSize)arg2 grayscale:(_Bool)arg3;
++ (id)textureVectorNoiseWithSmoothness:(double)arg1 size:(struct CGSize)arg2;
 + (id)textureWithRect:(struct CGRect)arg1 inTexture:(id)arg2;
 + (id)textureWithImageNamed:(id)arg1 rect:(struct CGRect)arg2;
 + (id)textureWithImageNamed:(id)arg1;
 + (void)preloadTextures:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-+ (void)addTextureToPreloadlist:(id)arg1;
++ (void)_addTextureToPreloadlist:(id)arg1;
 + (id)lookupTextureCacheForName:(id)arg1;
 + (void)registerTextureCache:(id)arg1 forName:(id)arg2;
 + (id)_textureWithGLTextureId:(unsigned int)arg1 size:(struct CGSize)arg2;
@@ -65,20 +69,16 @@
 @property(readonly, nonatomic) unsigned int *alphaMap; // @synthesize alphaMap=_alphaMap;
 @property(copy, nonatomic) NSString *subTextureName; // @synthesize subTextureName=_subTextureName;
 @property(copy, nonatomic) NSString *originalAtlasName; // @synthesize originalAtlasName=_originalAtlasName;
-@property(nonatomic) unsigned int textureTarget; // @synthesize textureTarget=_textureTarget;
 @property(nonatomic) struct CGPoint cropOffset; // @synthesize cropOffset=_cropOffset;
-@property(nonatomic) _Bool isRotated; // @synthesize isRotated=_isRotated;
 @property(nonatomic) struct CGPoint cropScale; // @synthesize cropScale=_cropScale;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)dealloc;
-- (int)glTextureId;
 - (void)preload;
 - (void)unload;
 @property(nonatomic) long long filteringMode;
 @property(nonatomic) int wrapMode;
 @property(readonly, nonatomic) _Bool isRepeatable;
-- (void)load;
 - (void)_loadOnTextureQueue;
 - (void)_ensureImageData;
 @property(nonatomic) _Bool usesMipmaps;
@@ -108,10 +108,20 @@
 - (struct CGImage *)alphaMask;
 - (_Bool)alphaTestX:(double)arg1 y:(double)arg2;
 - (void)generateAlphaMapOfSize:(struct CGSize)arg1 fromImage:(struct CGImage *)arg2;
+- (id)textureByGeneratingNormalMapWithSmoothness:(double)arg1 contrast:(double)arg2;
+- (id)textureByGeneratingNormalMap;
+- (id)_textureCache;
 - (id)imgName;
 - (void)_savePngFromGLCache:(id)arg1;
 - (struct CGImage *)_newTextureFromGLCache;
+- (id)_initWithGLTextureId:(unsigned int)arg1 size:(struct CGSize)arg2;
 @property(readonly, nonatomic) NSString *imageNameOrPath;
+- (id)_generateNormalMap:(double)arg1 contrast:(double)arg2 multiPass:(unsigned long long)arg3;
+- (id)_copyImageData;
+- (void)load;
+@property(nonatomic) unsigned int textureTarget;
+@property(nonatomic) _Bool isRotated;
+- (int)glTextureId;
 
 @end
 

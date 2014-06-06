@@ -6,7 +6,7 @@
 
 #import <SpriteKit/SKNode.h>
 
-@class SKAction, SKKeyframeSequence, SKTexture, UIColor;
+@class SKAction, SKKeyframeSequence, SKShader, SKTexture, UIColor;
 
 @interface SKEmitterNode : SKNode
 {
@@ -21,12 +21,14 @@
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) SKShader *shader;
 - (void)advanceSimulationTime:(double)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)setPaused:(_Bool)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
+@property(nonatomic) unsigned int fieldBitMask;
 - (void)resetSimulation;
 @property(nonatomic) unsigned long long numParticlesToEmit;
 @property(copy, nonatomic) SKAction *particleAction;
@@ -67,7 +69,12 @@
 @property(nonatomic) double particleZPositionRange;
 @property(nonatomic) double particleZPosition;
 @property(nonatomic) struct CGSize particleSize;
+@property(nonatomic) double particleZPositionSpeed;
 @property(nonatomic) __weak SKNode *targetNode;
+- (double)particleDensity;
+- (void)setParticleDensity:(double)arg1;
+- (_Bool)densityBased;
+- (void)setDensityBased:(_Bool)arg1;
 - (id)particleRotationSequence;
 - (void)setParticleRotationSequence:(id)arg1;
 @property(retain, nonatomic) SKKeyframeSequence *particleScaleSequence;
@@ -76,6 +83,8 @@
 @property(retain, nonatomic) SKKeyframeSequence *particleAlphaSequence;
 - (_Bool)containsPoint:(struct CGPoint)arg1;
 - (id)description;
+- (void)setPhysicsWorld:(id)arg1;
+- (id)physicsWorld;
 
 @end
 

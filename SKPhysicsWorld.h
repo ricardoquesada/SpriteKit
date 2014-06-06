@@ -21,6 +21,8 @@
 @property(nonatomic) struct CGVector gravity; // @synthesize gravity=_gravity;
 @property(nonatomic) double speed; // @synthesize speed;
 - (id).cxx_construct;
+- (struct CGVector)sampleField:(id)arg1 position:(struct CGPoint)arg2;
+- (struct CGVector)sampleFields:(struct CGPoint)arg1;
 - (id)bodyAlongRayStart:(struct CGPoint)arg1 end:(struct CGPoint)arg2;
 - (id)bodyInRect:(struct CGRect)arg1;
 - (id)bodyAtPoint:(struct CGPoint)arg1;
@@ -30,6 +32,7 @@
 - (void)removeAllJoints;
 - (void)removeJoint:(id)arg1;
 - (void)addJoint:(id)arg1;
+- (id)fields;
 - (id)bodies;
 - (_Bool)hasBodies;
 - (void)removeAllBodies;
